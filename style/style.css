@@ -671,3 +671,111 @@ body::before {
     transform: translateX(-50%) scale(1);
     top: -1.8rem;
 }
+/* =========================================
+   Responsive Design (Mobile & Tablet)
+   ================================********* */
+
+@media (max-width: 1200px) {
+    .wrapper {
+        width: 100%;
+        height: auto;
+        padding: 0;
+        perspective: none;
+        animation: none;
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+
+    .cover {
+        display: none;
+    }
+
+    .book {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        padding-bottom: 3rem;
+    }
+
+    .book .book-page, 
+    .book-page.page-right {
+        position: relative;
+        width: 100%;
+        height: auto;
+        left: 0;
+        right: 0;
+        transform-origin: center;
+        transform: none !important;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+        pointer-events: auto;
+        display: block; /* Ensure they allow stacking */
+    }
+
+    .book-page .page-front,
+    .book-page .page-back {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 2rem;
+        margin-bottom: 1.5rem;
+        background: rgba(255, 255, 255, 0.03); /* Glass container */
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 1rem;
+        transform: none !important;
+        backface-visibility: visible;
+        display: block; /* Stack front and back content vertically */
+    }
+
+    /* Adjust content inside pages */
+    .profile-page {
+        margin-bottom: 2rem;
+    }
+
+    .profile-page h1 {
+        font-size: 2.2rem;
+    }
+
+    /* Hide Navigation Buttons on Mobile (Scroll instead) */
+    .nextprev-btn {
+        display: none;
+    }
+
+    /* Adjust Grid Layouts for Mobile */
+    .services-box, .skill-box {
+        justify-content: center;
+    }
+
+    .services-box .services-content {
+        flex: 1 1 100%; /* Full width cards */
+    }
+    
+    .skill-box .skill-content {
+        flex: 1 1 100%;
+    }
+
+    .book-page.page-right.turn {
+        z-index: auto; /* Fix z-index stacking */
+    }
+    
+    /* Ensure no horizontal scroll */
+    body {
+        overflow-y: auto; /* Enable vertical scroll */
+        height: auto;
+        display: block;
+    }
+    
+    .contact-box textarea {
+        height: 10rem;
+    }
+    
+    /* Mobile Texture Fix */
+    body::before {
+        background-attachment: fixed;
+    }
+}
